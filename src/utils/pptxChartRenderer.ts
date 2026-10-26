@@ -693,22 +693,6 @@ export function renderValueChainMassFlowDiagram(dataset: CountryPCWIDataset): st
   // Arrow 2 -> 3
   drawBlockArrowH(736, 272, 818, 16, 14, 30, '#f3dec9', '#9333ea');
 
-  // Top Import Circle above Box 3
-  ctx.beginPath();
-  ctx.arc(960, 58, 34, 0, Math.PI * 2);
-  ctx.fillStyle = '#fde6d8';
-  ctx.fill();
-  ctx.lineWidth = 1.4;
-  ctx.strokeStyle = '#ea580c';
-  ctx.stroke();
-  ctx.fillStyle = '#000000';
-  ctx.font = '400 9.5px "Segoe UI", Arial, sans-serif';
-  ctx.textAlign = 'center';
-  ctx.fillText('Import', 960, 54);
-  ctx.fillText('X?? t', 960, 66);
-
-  drawBlockArrowV(960, 93, 152, 14, 26, 10, '#f3d1f4', '#7e22ce');
-
   // --- 3. PROCESSED BOX ---
   const procRigid = dataset.card3.q3_10_massBalance.filter((m) => m.pvcType === 'Rigid PVC');
   const procFlex = dataset.card3.q3_10_massBalance.filter((m) => m.pvcType === 'Flexible PVC');
@@ -967,20 +951,6 @@ export function renderValueChainMassFlowDiagram(dataset: CountryPCWIDataset): st
       }
     ]
   });
-
-  // Small cyan Import circle to the right of Uptake box
-  ctx.beginPath();
-  ctx.arc(1560, 462, 32, 0, Math.PI * 2);
-  ctx.fillStyle = '#bef8fc';
-  ctx.fill();
-  ctx.lineWidth = 1.2;
-  ctx.strokeStyle = '#22d3ee';
-  ctx.stroke();
-  ctx.fillStyle = '#000000';
-  ctx.font = '400 9px "Segoe UI", Arial, sans-serif';
-  ctx.textAlign = 'center';
-  ctx.fillText('Import', 1560, 458);
-  ctx.fillText('X?? t', 1560, 470);
 
   return canvas.toDataURL('image/png');
 }

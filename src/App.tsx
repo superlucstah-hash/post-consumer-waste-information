@@ -490,6 +490,41 @@ export default function App() {
                         })}
                       </div>
                     </div>
+
+                    {/* Collection Totals & Capture Rate Footer Box */}
+                    <div className="mt-4 pt-3 border-t border-slate-200 grid grid-cols-3 gap-2.5 text-center">
+                      <div className="p-2.5 rounded-xl bg-recovinyl-light/60 border border-recovinyl-blue/25">
+                        <div className="text-[10px] font-bold uppercase text-recovinyl-dark">
+                          Total Rigid
+                        </div>
+                        <div className="text-sm font-black text-recovinyl-blue mt-0.5">
+                          {summaryDataset.card2.totalRigidCollected.toLocaleString()} t
+                        </div>
+                      </div>
+                      <div className="p-2.5 rounded-xl bg-recovinyl-greenLight/70 border border-recovinyl-green/35">
+                        <div className="text-[10px] font-bold uppercase text-recovinyl-greenDark">
+                          Total Flexible
+                        </div>
+                        <div className="text-sm font-black text-recovinyl-greenDark mt-0.5">
+                          {summaryDataset.card2.totalFlexibleCollected.toLocaleString()} t
+                        </div>
+                      </div>
+                      <div className="p-2.5 rounded-xl bg-slate-100 border border-slate-200">
+                        <div className="text-[10px] font-bold uppercase text-slate-600">
+                          Capture Rate
+                        </div>
+                        <div className="text-sm font-black text-slate-900 mt-0.5">
+                          {summaryDataset.card1.totalGenerated > 0
+                            ? (
+                                (summaryDataset.card2.totalCollected /
+                                  summaryDataset.card1.totalGenerated) *
+                                100
+                              ).toFixed(1)
+                            : '0.0'}
+                          %
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </>
